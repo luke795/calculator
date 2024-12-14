@@ -1,0 +1,104 @@
+*   {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: sans-serif;
+}
+
+.app {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.calculator{
+    background-color:#22252D;
+    width:100%;
+    max-width: 375px;
+    min-height:275px; 
+    display:flex;
+    flex-direction:column;
+    border-radius:1.5rem; 
+    overflow:hidden;                /*controls what happens to content that is too big to fit into an area*/
+}
+
+.display{
+    min-height: 200px;
+    padding:1.5rem;
+    display:flex;                   /*display 底下的div 會flex , 意思是預設水平排列*/
+    justify-content:flex-end;       /*flex 設定為垂直排列*/
+    align-items:flex-end;           /*end 排列在最底部*/
+    color:white;                  /*字體顏色白色*/
+    text-align:right;               /*字體靠最右邊*/
+    flex:1 1 0%;                  /*flex: [flex-grow] [flex-shrink] [flex-basis];*/
+}
+
+.display .input{
+    font-size:1.25rem;       /*字體大小*/
+    margin-bottom:0.5rem;   /*距離底部高0.5rem*/
+}
+
+.display .output{
+    font-size: 3rem;    /*字體大小*/
+    font-weight: 700;  /*字體加粗*/
+    width : 100%;        
+    max-width: 100%;
+    overflow:auto;      /*controls what happens to content that is too big to fit into an area*/
+}
+
+
+.display .operator{
+    color: #eb6666;
+}
+
+.display .brackets,
+.display .percent{
+    color: #26FEd7;
+}
+
+.keys{
+    background-color:#292D36;
+    padding: 1.5rem;
+    border-radius:1.5rem 1.5rem 0 0;
+    display:grid;  /*方格*/
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(5,1fr);
+    grid-gap: 1rem;
+    box-shadow: 0px -2px 16px rgba(0,0,0,0.2);
+}
+
+.keys .key{
+    position: relative;
+    cursor: pointer;   /*游標移過去的時候會變化*/
+
+    display:block;
+    height:0;
+    padding-top:100%;
+    background-color:#262933;
+    border-radius:1rem;
+    transition:0.2s;
+    user-select:none;
+}
+
+.keys .key span{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 2rem;
+    font-weight: 700;
+    color:white;
+}
+
+.keys .key:hover{
+    box-shadow: inset 0px 0px 8px rgba(0,0,0,0.2);
+}
+
+.keys .key.operator span{
+    color:#eb6666;
+}
+
+.keys .key.action span{
+    color:#26FEd7;
+}
